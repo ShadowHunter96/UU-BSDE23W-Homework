@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="output"></p>
+    <script>
+        function convertBinaryToDecimal(binaryNumber) {
+            // Initialize variables
+            let decimalNumber = 0;
+            let exponent = 0;
+            //validating input
+            if (binaryNumber === "") {
+                console.error('Error: Empty input. Please provide a binary number for conversion.');
+                return null;
+            }
+
+            // Validating if the binary number contains only 0 and 1
+            let validInput = true;
+            for (let i = 0; i < binaryNumber.length; i++) {
+                if (binaryNumber[i] !== '0' && binaryNumber[i] !== '1') {
+                    validInput = false;
+                    break;
+                }
+            }
+
+            if (validInput) {
+                // Iteration: Convert binary to decimal
+                for (let i = binaryNumber.length - 1; i >= 0; i--) {
+                    const bit = parseInt(binaryNumber[i]);
+                    decimalNumber += bit * Math.pow(2, exponent);
+                    exponent++;
+                }
+                return decimalNumber;
+            } else {
+                // Should the binary number contains invalid characters
+                console.error('Error: The binary number contains invalid characters.');
+                return null;
+            }
+        }
+
+        // Testing if the converter or parser function worls
+        const binaryNumber = "101111";
+        const decimalResult = convertBinaryToDecimal(binaryNumber);
+        if (decimalResult !== null) {
+            console.log(`Conversion result: ${decimalResult}`);
+        } else {
+            console.log('Conversion failed.');
+        }
+    </script>
+</body>
+
+</html>
