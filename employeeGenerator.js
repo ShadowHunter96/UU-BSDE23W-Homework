@@ -1,21 +1,29 @@
 function generateRandomEmployee() {
     
-    const firstNames = [
-        "John", "Jane", "Michael", "Emily", "David", "Sarah", "Robert", "Jessica", "William", "Linda",
-        "James", "Mary", "Christopher", "Jennifer", "Joseph", "Elizabeth", "Thomas", "Patricia", "Daniel", "Nancy",
-        "Matthew", "Susan", "Richard", "Karen", "Charles", "Lisa", "Mark", "Margaret", "Anthony", "Betty",
+    const maleFirstNames = [
+        "John", "Michael", "David", "Robert", "William",
+        "James", "Joseph", "Matthew", "Richard", "Charles",
+        // Add more male first names here
     ];
+
+    const femaleFirstNames = [
+        "Jane", "Emily", "Sarah", "Jessica", "Linda",
+        "Mary", "Jennifer", "Elizabeth", "Patricia", "Susan",
+        // Add more female first names here
+    ];
+
+
     const lastNames = [
         "Smith", "Johnson", "Brown", "Taylor", "Anderson", "Wilson", "Miller", "Davis", "Garcia", "Martinez",
         "Jones", "Clark", "Rodriguez", "Hernandez", "Lopez", "Lewis", "Lee", "Walker", "Hall", "Allen",
         "Young", "Green", "Evans", "King", "Wright", "Scott", "Baker", "Adams", "Gonzalez", "Stewart",
     ];
     
-    const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+    const randomFirstName = maleFirstNames.concat(femaleFirstNames)[Math.floor(Math.random() * (maleFirstNames.length + femaleFirstNames.length))];
     const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
     
-    const gender = Math.random() < 0.5 ? "male" : "female";
-    const birthYear = Math.floor(Math.random() * 40) + 1980;
+    const gender = maleFirstNames.includes(randomFirstName) ? "male" : "female";
+     const birthYear = Math.floor(Math.random() * 40) + 1980;
     const birthMonth = Math.floor(Math.random() * 12) + 1;
     const birthDay = Math.floor(Math.random() * 28) + 1;
     
