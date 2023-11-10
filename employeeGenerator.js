@@ -37,14 +37,17 @@ function generateEmployeeList(employeeCount, minAge, maxAge) {
     const employeeList = [];
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
-    for (let i = 0; i < employeeCount; i++) {
+    
+    while (employeeList.length < employeeCount) {
         const randomEmployee = generateRandomEmployee();
         const birthYear = parseInt(randomEmployee.birthdate.substring(0, 4));
         const age = currentYear - birthYear;
+        
         if (age >= minAge && age <= maxAge) {
             employeeList.push(randomEmployee);
         }
     }
+    
     return employeeList;
 }
 
