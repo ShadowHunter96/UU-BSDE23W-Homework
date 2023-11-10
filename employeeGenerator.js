@@ -4,13 +4,10 @@ function generateRandomEmployee() {
         "John", "Michael", "David", "Robert", "William",
         "James", "Joseph", "Matthew", "Richard", "Charles",
     ];
-
     const femaleFirstNames = [
         "Jane", "Emily", "Sarah", "Jessica", "Linda",
         "Mary", "Jennifer", "Elizabeth", "Patricia", "Susan",
     ];
-
-
     const lastNames = [
         "Smith", "Johnson", "Brown", "Taylor", "Anderson", "Wilson", "Miller", "Davis", "Garcia", "Martinez",
         "Jones", "Clark", "Rodriguez", "Hernandez", "Lopez", "Lewis", "Lee", "Walker", "Hall", "Allen",
@@ -19,6 +16,7 @@ function generateRandomEmployee() {
 
     const randomFirstName = maleFirstNames.concat(femaleFirstNames)[Math.floor(Math.random() * (maleFirstNames.length + femaleFirstNames.length))];
     const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+    //deleted method for random gender now gender is decided based on firstname
     const gender = maleFirstNames.includes(randomFirstName) ? "male" : "female";
     const birthYear = Math.floor(Math.random() * 40) + 1980;
     const birthMonth = Math.floor(Math.random() * 12) + 1;
@@ -33,24 +31,20 @@ function generateRandomEmployee() {
         birthdate: birthDate,
         workload: workload
     };
-}
+}   
 
 function generateEmployeeList(employeeCount, minAge, maxAge) {
     const employeeList = [];
-
     const currentDate = new Date();
     const currentYear = currentDate.getFullYear();
-
     for (let i = 0; i < employeeCount; i++) {
         const randomEmployee = generateRandomEmployee();
         const birthYear = parseInt(randomEmployee.birthdate.substring(0, 4));
         const age = currentYear - birthYear;
-
         if (age >= minAge && age <= maxAge) {
             employeeList.push(randomEmployee);
         }
     }
-
     return employeeList;
 }
 
