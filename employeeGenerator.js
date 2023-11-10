@@ -1,5 +1,6 @@
 function generateRandomEmployee() {
 
+    //setting up params for random full name generator
     const maleFirstNames = [
         "John", "Michael", "David", "Robert", "William",
         "James", "Joseph", "Matthew", "Richard", "Charles",
@@ -14,6 +15,7 @@ function generateRandomEmployee() {
         "Young", "Green", "Evans", "King", "Wright", "Scott", "Baker", "Adams", "Gonzalez", "Stewart",
     ];
 
+    //defining random and other StringBuilders almost same in Java 
     const randomFirstName = maleFirstNames.concat(femaleFirstNames)[Math.floor(Math.random() * (maleFirstNames.length + femaleFirstNames.length))];
     const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
     //deleted method for random gender now gender is decided based on firstname
@@ -24,6 +26,7 @@ function generateRandomEmployee() {
     const birthDate = `${birthYear}-${birthMonth.toString().padStart(2, "0")}-${birthDay.toString().padStart(2, "0")}T00:00:00.000Z`;
     const workload = [10, 20, 30, 40][Math.floor(Math.random() * 4)];
 
+    //Getter of the function
     return {
         name: randomFirstName,
         surname: randomLastName,
