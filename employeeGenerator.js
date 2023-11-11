@@ -67,4 +67,4 @@ const dtoIn = {
     maxAge: 40         // Setter of the maximum age
 };
 const result = main(dtoIn)
-console.log(result); // System.out.print(generated employee list in JSON format)
+console.log(result); // out printing generated employee list in JSON format 
