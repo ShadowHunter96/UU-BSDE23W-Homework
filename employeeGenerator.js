@@ -1,3 +1,27 @@
+function getRandomBirthdate() {
+    //defining start date and end date range
+    const startDate = new Date('1970-01-01T00:00:00.000Z').getTime();
+    const endDate = new Date('2014-01-01T00:00:00.000Z').getTime();
+    
+    // generating a random timestamp within the range
+    const randomTimestamp = Math.floor(Math.random() * (endDate - startDate)) + startDate;
+    
+    // creating new Date object using the random timestamp
+    const birthDate = new Date(randomTimestamp);
+
+    // making hours, minutes, seconds and miliSeconds to a random number generator with defining
+    const hours = Math.floor(Math.random() * 24); // 0 to 23 hours
+    const minutes = Math.floor(Math.random() * 60); // 0 to 59 minutes
+    const seconds = Math.floor(Math.random() * 60); // 0 to 59 seconds
+    const milliseconds = Math.floor(Math.random() * 1000); // 0 to 999 milliseconds
+
+    // Set the hours, minutes, and seconds to the birthDate
+    birthDate.setHours(hours, minutes, seconds, milliseconds);
+    
+    // Return the birthdate in ISO format with time zone offset set to Z (UTC)
+    return birthDate.toISOString();
+}
+
 function generateRandomEmployee() {
 
     //setting up params for random full name generator
@@ -20,10 +44,7 @@ function generateRandomEmployee() {
     const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
     //deleted method for random gender now gender is decided based on firstname
     const gender = maleFirstNames.includes(randomFirstName) ? "male" : "female";
-    const birthYear = Math.floor(Math.random() * 40) + 1980;
-    const birthMonth = Math.floor(Math.random() * 12) + 1;
-    const birthDay = Math.floor(Math.random() * 28) + 1;
-    const birthDate = `${birthYear}-${birthMonth.toString().padStart(2, "0")}-${birthDay.toString().padStart(2, "0")}T00:00:00.000Z`;
+    const birthDate = getRandomBirthdate();
     const workload = [10, 20, 30, 40][Math.floor(Math.random() * 4)];
 
     //Getter of the function
