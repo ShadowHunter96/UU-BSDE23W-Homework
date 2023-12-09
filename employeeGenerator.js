@@ -82,7 +82,7 @@ function generateEmployeeList(employeeCount, minAge, maxAge) {
 
 
 function getEmployeeStatistics(employeeList) {
-    // Calculate the various statistics based on employeeList
+    // Calculate the various statistics in employeeList // vypocet statistic na zaklade udaju z employee list return fce
     const totalEmployees = employeeList.length;
     const workloads = { workload10: 0, workload20: 0, workload30: 0, workload40: 0 };
     let sumAges = 0;
@@ -96,7 +96,7 @@ function getEmployeeStatistics(employeeList) {
       // Count workload by hours
       workloads[`workload${emp.workload}`] += 1;
   
-      // Sum of female workloads for average calculation
+      // Sum of female workloads for average calculation // suma zenske prace
       if (emp.gender === 'female') {
         sumFemaleWorkload += emp.workload;
         femaleCount++;
@@ -112,7 +112,7 @@ function getEmployeeStatistics(employeeList) {
       birthdate: emp.birthdate,
       name: emp.name,
       surname: emp.surname,
-      // workload is not included based on the second image
+      
   }));
 
 
@@ -135,8 +135,8 @@ function getEmployeeStatistics(employeeList) {
         maxAge,
         medianAge,
         medianWorkload,
-        averageWomenWorkload: averageFemaleWorkload, // Rename this property
-        sortedByWorkload, // Use this property name
+        averageWomenWorkload: averageFemaleWorkload, 
+        sortedByWorkload, 
       };
     }      
   
@@ -163,13 +163,13 @@ function getEmployeeStatistics(employeeList) {
   
 
 function main(dtoIn) {
-    // Destructure the input object
+    // Destructuring the input object
     const { count, age: { min, max } } = dtoIn;
     
-    // Generate the employee list based on input criteria
+    // Generating the employee list based on input criteria
     const employeeList = generateEmployeeList(count, min, max);
     
-    // Get statistics from the employee list
+    // Getting statistics from the employee list
     const statistics = getEmployeeStatistics(employeeList);
     
     // Construct the output object
