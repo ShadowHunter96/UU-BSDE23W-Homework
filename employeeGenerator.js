@@ -149,11 +149,8 @@ function getEmployeeStatistics(employeeList) {
     }
     return sorted[middle];
   }
-  
-
-
-
-  const dtoIn = {
+  //generating the desired number of work people
+   const dtoIn = {
     count: 15,
     age: {
       min: 18,
